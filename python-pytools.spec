@@ -16,12 +16,14 @@ Source0:	https://pypi.python.org/packages/source/p/pytools/pytools-%{version}.ta
 # Source0-md5:	7f8e9d6a88090a601e96a9ee095d3512
 URL:		http://mathema.tician.de/software/pytools
 %if %{with python2}
+BuildRequires:	python-appdirs >= 1.4.0
 BuildRequires:	python-devel >= 1:2.6
 BuildRequires:	python-decorator >= 3.2.0
 BuildRequires:	python-distribute
 BuildRequires:	python-six
 %endif
 %if %{with python3}
+BuildRequires:	python3-appdirs >= 1.4.0
 BuildRequires:	python3-devel >= 1:3.3
 BuildRequires:	python3-decorator >= 3.2.0
 BuildRequires:	python3-distribute
