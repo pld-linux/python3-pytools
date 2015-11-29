@@ -30,7 +30,7 @@ BuildRequires:	python3-distribute
 BuildRequires:	python3-six
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.612
+BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-appdirs >= 1.4.0
 Requires:	python-decorator >= 3.2.0
 Requires:	python-six
