@@ -7,30 +7,38 @@
 Summary:	A small collection of tools for Python 2
 Summary(pl.UTF-8):	Mały zestaw narzędzi dla Pythona 2
 Name:		python-pytools
-Version:	2014.3.5
-Release:	4
+Version:	2016.2.1
+Release:	1
 License:	MIT
 Group:		Development/Languages/Python
-#Source0Download: https://pypi.python.org/pypi/pytools
-Source0:	https://pypi.python.org/packages/source/p/pytools/pytools-%{version}.tar.gz
-# Source0-md5:	7f8e9d6a88090a601e96a9ee095d3512
+#Source0Download: https://pypi.python.org/simple/pytools/
+Source0:	https://pypi.python.org/packages/1a/1e/ce42d53bad97ad16732c8d9ac1dd6ed22a906ea07f291df5f6f90a6c7a2a/pytools-%{version}.tar.gz
+# Source0-md5:	452dfa3023733a675cc1bee91c536cbd
 URL:		http://mathema.tician.de/software/pytools
 %if %{with python2}
-BuildRequires:	python-appdirs >= 1.4.0
 BuildRequires:	python-devel >= 1:2.6
+BuildRequires:	python-setuptools
+%if %{with tests}
+BuildRequires:	python-appdirs >= 1.4.0
 BuildRequires:	python-decorator >= 3.2.0
-BuildRequires:	python-distribute
-BuildRequires:	python-six
+BuildRequires:	python-numpy >= 1.6.0
+BuildRequires:	python-pytest
+BuildRequires:	python-six >= 1.8.0
+%endif
 %endif
 %if %{with python3}
-BuildRequires:	python3-appdirs >= 1.4.0
 BuildRequires:	python3-devel >= 1:3.3
+BuildRequires:	python3-setuptools
+%if %{with tests}
+BuildRequires:	python3-appdirs >= 1.4.0
 BuildRequires:	python3-decorator >= 3.2.0
-BuildRequires:	python3-distribute
-BuildRequires:	python3-six
+BuildRequires:	python3-numpy >= 1.6.0
+BuildRequires:	python3-pytest
+BuildRequires:	python3-six >= 1.8.0
+%endif
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.710
+BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-appdirs >= 1.4.0
 Requires:	python-decorator >= 3.2.0
 Requires:	python-six
@@ -74,36 +82,28 @@ mało interesująca.
 
 %build
 %if %{with python2}
-%py_build \
-	--build-base build-2 %{?with_tests:test}
+%py_build
+
+%{?with_tests:PYTHONPATH=. py.test-%{py_ver} test}
 %endif
 
 %if %{with python3}
-%py3_build \
-	--build-base build-3 %{?with_tests:test}
+%py3_build
+
+%{?with_tests:PYTHONPATH=. py.test-%{py3_ver} test}
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
-%py_build \
-		--build-base build-2 \
-	install \
-		--skip-build \
-		--optimize=2 \
-		--root=$RPM_BUILD_ROOT
+%py_install
 
 %py_postclean
 %endif
 
 %if %{with python3}
-%py3_build \
-		--build-base build-3 \
-	install \
-		--skip-build \
-		--optimize=2 \
-		--root=$RPM_BUILD_ROOT
+%py3_install
 %endif
 
 %clean
