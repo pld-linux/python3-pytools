@@ -84,13 +84,13 @@ mało interesująca.
 %if %{with python2}
 %py_build
 
-%{?with_tests:PYTHONPATH=. py.test-%{py_ver} test}
+%{?with_tests:PYTHONPATH=$(pwd) %{__python} -m pytest test}
 %endif
 
 %if %{with python3}
 %py3_build
 
-%{?with_tests:PYTHONPATH=. py.test-%{py3_ver} test}
+%{?with_tests:PYTHONPATH=$(pwd) %{__python3} -m pytest test}
 %endif
 
 %install
