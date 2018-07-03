@@ -7,13 +7,13 @@
 Summary:	A small collection of tools for Python 2
 Summary(pl.UTF-8):	Mały zestaw narzędzi dla Pythona 2
 Name:		python-pytools
-Version:	2016.2.1
-Release:	3
+Version:	2018.5.2
+Release:	1
 License:	MIT
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.python.org/simple/pytools/
-Source0:	https://pypi.python.org/packages/1a/1e/ce42d53bad97ad16732c8d9ac1dd6ed22a906ea07f291df5f6f90a6c7a2a/pytools-%{version}.tar.gz
-# Source0-md5:	452dfa3023733a675cc1bee91c536cbd
+Source0:	https://files.pythonhosted.org/packages/90/6a/7b706e4730db0ee5724c677cceafcac1bc9710c61612442a689e7b0aa5c4/pytools-%{version}.tar.gz
+# Source0-md5:	50217f663eb30a1e5d248cc6defd0cf6
 URL:		http://mathema.tician.de/software/pytools
 %if %{with python2}
 BuildRequires:	python-devel >= 1:2.6
@@ -112,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc README.rst
 %{py_sitescriptdir}/pytools
 %{py_sitescriptdir}/pytools-%{version}-py*.egg-info
 %endif
@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-pytools
 %defattr(644,root,root,755)
-%doc README
+%doc README.rst
 %{py3_sitescriptdir}/pytools
 %{py3_sitescriptdir}/pytools-%{version}-py*.egg-info
 %endif
