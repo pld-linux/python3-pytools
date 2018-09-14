@@ -4,6 +4,7 @@
 %bcond_without	python3	# CPython 3.x module
 %bcond_without	tests	# do not perform "setup.py test"
 #
+%define		pypi_name	pytools
 Summary:	A small collection of tools for Python 2
 Summary(pl.UTF-8):	Mały zestaw narzędzi dla Pythona 2
 Name:		python-pytools
@@ -12,7 +13,7 @@ Release:	1
 License:	MIT
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.python.org/simple/pytools/
-Source0:	https://files.pythonhosted.org/packages/90/6a/7b706e4730db0ee5724c677cceafcac1bc9710c61612442a689e7b0aa5c4/pytools-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 # Source0-md5:	50217f663eb30a1e5d248cc6defd0cf6
 URL:		http://mathema.tician.de/software/pytools
 %if %{with python2}
