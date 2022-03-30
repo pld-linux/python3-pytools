@@ -9,7 +9,7 @@ Summary:	A small collection of tools for Python 2
 Summary(pl.UTF-8):	Mały zestaw narzędzi dla Pythona 2
 Name:		python-pytools
 Version:	2018.5.2
-Release:	4
+Release:	5
 License:	MIT
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.python.org/simple/pytools/
