@@ -7,7 +7,7 @@ Summary:	A small collection of tools for Python 2
 Summary(pl.UTF-8):	Mały zestaw narzędzi dla Pythona 2
 Name:		python3-pytools
 Version:	2025.1.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.python.org/simple/pytools/
@@ -25,9 +25,9 @@ BuildRequires:	python3-six >= 1.8.0
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python-appdirs >= 1.4.0
-Requires:	python-decorator >= 3.2.0
-Requires:	python-six
+Requires:	python3-appdirs >= 1.4.0
+Requires:	python3-decorator >= 3.2.0
+Requires:	python3-six
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
